@@ -9,12 +9,12 @@
  *
  * ```javascript
  * [1,2,3,4]
- *   ::take(function () {
+ *   ::filter(function () {
  *     return this % 2 === 0;
- *   }) // yields 2 and 4
+ *   }) // yields [2,4]
  * ```
 */
-export function * take <T> (
+export function * filter <T> (
     condition : (_this : T) => boolean,
 ) : Iterable<T> {
     for ( const item of this ) {

@@ -1,19 +1,25 @@
 /**
- * Indefinitely repeat the values of a given iterator.
+ * Repeat the values of a given iterator n times
  *
  * @this {Iterable<T>}
+ * @param n How many times the iterable should be repeated
  * @example Basic Usage
  *
  * ```javascript
- * [1,2,3]::repeat(); // yields [1,2,3,1,2,3...]
+ * [1,2]::repeat(2); // yields [1,2,1,2]
  * ```
 */
 export function * repeat <T> (
-
+    n : number
 ) : Iterable<T> {
-    const items = [...this];
+    if ( n < 1 ) {
+        return;
+    }
 
-    while ( true ) {
+    const items = [...this];
+    let i = 0;
+
+    while ( n > i++ ) {
         yield * items;
     }
 };
