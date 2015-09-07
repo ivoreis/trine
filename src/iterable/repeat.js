@@ -12,10 +12,6 @@
 export function * repeat <T> (
     n : number
 ) : Iterable<T> {
-    if ( n < 1 ) {
-        return;
-    }
-
     const items = [...this];
     let i = 0;
 
